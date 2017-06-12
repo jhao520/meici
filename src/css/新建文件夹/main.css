@@ -1,0 +1,31 @@
+main .banner { height: 500px; overflow: hidden; }
+
+main .weekly .weekly_top { margin: 23px 0 10px; height: 54px; }
+
+main .weekly .weekly_top .wt_line { width: 100%; height: 1px; top: 29px; z-index: 1; background: #e8e8e8; }
+
+main .weekly .weekly_top .wt_title { width: 260px; height: 48px; margin: 0 auto; z-index: 2; text-align: center; font-size: 16px; background: #FFF; line-height: 24px; }
+
+main .weekly .weekly_content .content a { display: block; }
+
+main .weekly .weekly_content .content a:nth-child(2) { margin-top: 12px; }
+
+main .weekly .being_sold .sold_ul li { float: left; margin: 5px 16px 0; width: 160px; height: 260px; }
+
+main .weekly .being_sold .sold_ul li a { color: #555; }
+
+main .weekly .being_sold .sold_ul li a p { height: 22px; text-align: center; }
+
+main .weekly .being_sold .sold_ul li .s_gray { text-align: center; color: #999; }
+
+main .weekly .trends { margin-top: 10px; }
+
+main .weekly .trends .trends_cont { padding-bottom: 6px; }
+
+main .weekly .trends .trends_cont a p { padding-left: 15px; width: 301px; height: 36px; line-height: 36px; font-size: 18px; background: rgba(255, 255, 255, 0.8); bottom: 20px; }
+
+main .weekly .subscribe .subscr_c form { margin-top: 10px; padding-left: 40px; }
+
+main .weekly .subscribe .subscr_c form input { padding-left: 36px; background: url(img/footico.gif) no-repeat -40px -31px; width: 124px; height: 25px; line-height: 25px; border: 1px solid #a3a3a3; color: #999; font-size: 12px; }
+
+main .weekly .subscribe .subscr_c form button { margin-left: 5px; background: #000; color: #fff; width: 70px; height: 27px; line-height: 27px; text-align: center; border: none; }

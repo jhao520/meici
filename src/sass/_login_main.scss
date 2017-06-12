@@ -1,0 +1,40 @@
+body{background:#FDFDFD;}
+main{
+	min-height:535px;background:#fefefe url(../img/memberbg.jpg) no-repeat center 0;
+	article{
+		section{
+			left:50%;top:25px;margin-left:150px;padding:30px 40px;width:298px;border:1px solid #e8e8e8;box-shadow: 3px 3px 7px #eee;background:#fff;
+
+			a{color:#669aca;}
+			.title{margin-bottom:20px;font-size:18px;font-weight:900;}
+			.form_icon{margin:0 6px;width:26px;height:26px;background:url(img/memberico.gif) no-repeat;}
+			.user{
+				margin-bottom:10px;padding:4px 0;border:1px solid #e8e8e8;
+				input{float:left;padding-left:6px;border-left:1px solid #e8e8e8;height:26px;}
+			}
+			.pwd{
+				margin-bottom:10px;padding:4px 0;border:1px solid #e8e8e8;
+				.pwd_icon{background-position:-26px 0;}
+				input{float:left;padding-left:6px;border-left:1px solid #e8e8e8;height:26px;}
+			}
+			.check{
+				padding:6px 0;color:#999;
+				label{
+					float:left;cursor:pointer;
+					input{margin-right:7px;vertical-align:middle;}
+				}
+				a{float:right;color:#999;}
+			}
+			.err_out{height:30px;color:#f00;}
+			button{width:100%;height:48px;background:#333;color:#fff;font-size:18px;border:none;}
+			.to_reg{
+				margin:20px 0 10px;text-align:center;
+			}
+			.msg_code{
+				width:200px;
+				input{width:150px;}
+			}
+			.s_code{line-height:36px;}
+		}
+	}
+}

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>美西时尚</title>
+	<link rel="stylesheet" href="../css/cart.css">
+	<script src="js/require.js" data-main="js/index"></script>
+</head>
+<body>
+	<!-- ===================头部logo================= -->
+	<header>
+		<!-- ========顶部========= -->
+		<div class="top-warp">
+			<div class="top w1200 clear">
+				<div class="left fl">
+					<ul>
+						<li class="tel"><i></i>4000-250-630</li>
+						<li class="down_ewm_app relative">
+							<a href="javascript:;"><i></i>下载美西时尚APP</a>
+							<div class="down_app dn absolute">
+								<i class="sanjiao"></i>
+								<a href="javascript:;"><img src="../img/ewm_indexTop_1.png" alt="下载美西时尚App"><br>扫码下载</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="right fr">
+					<ul>
+						<li><a href="register.html">注册</a></li>
+						<li><a href="login.html">登录</a></li>
+						<li class="shoping_car relative">
+							<a href="cart.html"><i></i>购物袋 ( <span>0</span> )</a>
+							<div class="header_car dn absolute">
+								<i class="sanjiao"></i>
+								<div class="header_car_c"><p>您的购物袋是空的</p></div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<!-- <div class="weixin"></div> -->
+				<!-- <div class="microCar"></div> -->
+				
+			</div>
+		</div>
+		<!-- =============logo============= -->
+		<div id="head" class="w1200 clear relative">
+			<div class="logo mauto">
+				<h1><a href="../index.html">美西时尚</a></h1>
+			</div>
+			<div class="seach absolute">
+				<input type="text" id="seach_input" value="请输入关键词">
+				<button class="fr"><i></i></button>
+			</div>
+		</div>
+		<!-- ==============导航============ -->
+		<nav id="nav" class="relative">
+			<ul class="nav_t w1200 clear">
+				<li><a href="index.html">首页</a></li>
+				<li><a href="javascript:;"><i></i>新近单品</a></li>
+				<li><a href="javascript:;">全球购</a></li>
+				<li><a href="javascript:;"><i></i>女士</a></li>
+				<li><a href="javascript:;"><i></i>男士</a></li>
+				<li><a href="javascript:;"><i></i>童装</a></li>
+				<li><a href="javascript:;"><i></i>腕表</a></li>
+				<li><a href="javascript:;"><i></i>品牌</a></li>
+				<li><a href="javascript:;"><i></i>特惠区</a></li>
+				<li><a href="javascript:;">M潮流</a></li>
+			</ul>
+			<div class="nav_m">
+				<!-- 首页 -->
+				<div class="nav_menu absolute hide dn"></div>
+				<!-- 最新 -->
+				<div class="nav_menu absolute hide dn">
+					<div class="nav_menu_c bg_fff">
+						<ul>
+							<li class="nmc_tit"><a href="javascript:;">今日上新</a></li>
+							<li class="nmc_tit"><a href="javascript:;">昨日上新</a></li>
+							<li class="nmc_tit"><a href="javascript:;">本周上新</a></li>
+						</ul>
+						<ul>
+							<li class="nmc_tit"><a href="javascript:;">男仕 Man</a></li>
+							<li><a href="javascript:;">包袋 Bags</a></li>
+							<li><a href="javascript:;">配饰 Accessories</a></li>
+							<li><a href="javascript:;">鞋履 Shoes</a></li>
+							<li><a href="javascript:;">服装 Clothes</a></li>
+						</ul>
+						<ul>
+							<li class="nmc_tit"><a href="javascript:;">女士 Woman</a></li>
+							<li><a href="javascript:;">包袋 Bags</a></li>
+							<li><a href="javascript:;">配饰 Accessories</a></li>
+							<li><a href="javascript:;">鞋履 Shoes</a></li>
+							<li><a href="javascript:;">服装 Clothes</a></li>
+						</ul>
+					</div>
+					<div class="head_shadow"></div>
+				</div>
+				<!-- 全球购 -->
+				<div class="nav_menu absolute hide dn"></div>
+				<!-- 男士 -->
+				<div class="nav_menu absolute hide dn">
+					<div class="nav_menu_c bg_fff">
+						<ul>
+							<li class="nmc_tit"><a href="javascript:;">包袋 Bags</a></li>
+							<li><a href="javascript:;">所有包袋</a></li>
+							<li><a href="javascript:;">手提包 Totes</a></li>
+							<li><a href="javascript:;">单肩包 Shoulder Bags</a></li>
+							<li><a href="javascript:;">斜挎包 Messenger Bags</a></li>
+							<li><a href="javascript:;">手拿包 Clutch Bags</a></li>
+							<li><a href="javascript:;">双肩包 Travel Bags</a></li>
+						</ul>
+						<ul>
+							<li class="nmc_tit"><a href="javascript:;">配饰 Accessories</a></li>
+							<li><a href="javascript:;">所有配饰</a></li>
+							<li><a href="javascript:;">钱包 Wallets</a></li>
+							<li><a href="javascript:;">手表 Watches</a></li>
+							<li><a href="javascript:;">太阳眼镜 Sunglasses</a></li>
+							<li><a href="javascript:;">饰品 Jewelry</a></li>
+							<li><a href="javascript:;">腰带 Belts</a></li>
+							<li><a href="javascript:;">围巾 Scarf</a></li>
+							<li><a href="javascript:;">小配件 Small Acc.</a></li>
+						</ul>
+						<ul>
+							<li class="nmc_tit"><a href="javascript:;">鞋履 Shoes</a></li>
+							<li><a href="javascript:;">所有鞋履</a></li>
+							<li><a href="javascript:;">平底鞋 Flat Shoes</a></li>
+							<li><a href="javascript:;">高跟鞋 Pumps</a></li>
+							<li><a href="javascript:;">靴子 Boots</a></li>
+							<li><a href="javascript:;"></a></li>
+							<li><a href="javascript:;"></a></li>
+						</ul>
+						<ul>
+							<li class="nmc_tit"><a href="javascript:;">服装 Clothes</a></li>
+							<li><a href="javascript:;">所有服装</a></li>
+							<li><a href="javascript:;">卫衣 Hoodies</a></li>
+							<li><a href="javascript:;">衬衫 Shirt</a></li>
+							<li><a href="javascript:;">针织/毛衫 Knit/Sweater</a></li>
+							<li><a href="javascript:;">夹克 Jacket</a></li>
+							<li><a href="javascript:;">大衣 Coat</a></li>
+							<li><a href="javascript:;">半裙 Skirts</a></li>
+							<li><a href="javascript:;">连衣裙 Dresses</a></li>
+						</ul>
+					</div>
+					<div class="head_shadow"></div>
+				</div>
+				<!-- 女士 -->
+				<div class="nav_menu absolute hide dn">
+					<div class="nav_menu_c bg_fff">
+						<ul>
+							<li class="nmc_tit"><a href="javascript:;">包袋 Bags</a></li>
+							<li><a href="javascript:;">所有包袋</a></li>
+							<li><a href="javascript:;">手提包 Totes</a></li>
+							<li><a href="javascript:;">单肩包 Shoulder Bags</a></li>
+							<li><a href="javascript:;">斜挎包 Messenger Bags</a></li>
+							<li><a href="javascript:;">手拿包 Clutch Bags</a></li>
+							<li><a href="javascript:;">双肩包 Travel Bags</a></li>
+						</ul>
+						<ul>
+							<li class="nmc_tit"><a href="javascript:;">配饰 Accessories</a></li>
+							<li><a href="javascript:;">所有配饰</a></li>
+							<li><a href="javascript:;">钱包 Wallets</a></li>
+							<li><a href="javascript:;">手表 Watches</a></li>
+							<li><a href="javascript:;">太阳眼镜 Sunglasses</a></li>
+							<li><a href="javascript:;">腰带 Belts</a></li>
+							<li><a href="javascript:;">围巾 Scarf</a></li>
+							<li><a href="javascript:;">领带 Ties</a></li>
+							<li><a href="javascript:;">数码周边 Technology</a></li>
+							<li><a href="javascript:;">小配件 Small Acc.</a></li>
+						</ul>
+						<ul>
+							<li  class="nmc_tit"><a href="javascript:;">鞋履 Shoes</a></li>
+							<li><a href="javascript:;">所有鞋履</a></li>
+							<li><a href="javascript:;">平底鞋 Flat Shoes</a></li>
+							<li><a href="javascript:;">休闲皮鞋 Casual Shoes</a></li>
+							<li><a href="javascript:;">正装皮鞋 Business Shoes</a></li>
+							<li><a href="javascript:;"></a></li>
+							<li><a href="javascript:;"></a></li>
+							<li><a href="javascript:;"></a></li>
+						</ul>
+						<ul>
+							<li  class="nmc_tit"><a href="javascript:;">服装 Clothes</a></li>
+							<li><a href="javascript:;">所有服装</a></li>
+							<li><a href="javascript:;">卫衣 Hoodies</a></li>
+							<li><a href="javascript:;">T恤/POLO T-Shirt/POLO</a></li>
+							<li><a href="javascript:;">衬衫 Shirt</a></li>
+							<li><a href="javascript:;">西装套装 Suit</a></li>
+							<li><a href="javascript:;">夹克 Jacket</a></li>
+							<li><a href="javascript:;">大衣 Coat</a></li>
+							<li><a href="javascript:;">羽绒服/棉衣 Down Jacket</a></li>
+							<li><a href="javascript:;">休闲裤 Casual Pants</a></li>
+						</ul>
+					</div>
+					<div class="head_shadow"></div>
+				</div>
+				<!-- 童装 -->
+				<div class="nav_menu absolute hide dn">
+					<div class="nav_menu_c bg_fff">
+						<ul>
+							<li class="nmc_tit"><a href="javascript:;">儿童 Children</a></li>
+							<li><a href="javascript:;">T恤/POLO T-Shirt/POLO</a></li>
+							<li><a href="javascript:;">衬衫 Shirt</a></li>
+							<li><a href="javascript:;">卫衣 Hoodies</a></li>
+							<li><a href="javascript:;">羽绒服/棉服 Down Jackets</a></li>
+							<li><a href="javascript:;">连衣裙 Dresses</a></li>
+							<li><a href="javascript:;">休闲裤 Casual Pants</a></li>
+						</ul>
+						<ul>
+							<li class="nmc_tit"><a href="javascript:;">热门品牌</a></li>
+							<li><a href="javascript:;">Gucci 古驰</a></li>
+							<li><a href="javascript:;">Kenzo 高田贤三</a></li>
+							<li><a href="javascript:;">Little Dickins & Jones</a></li>
+							<li><a href="javascript:;">RIDERS ON THE STORM</a></li>
+						</ul>
+					</div>
+					<div class="head_shadow"></div>
+				</div>
+				<!-- 腕表 -->
+				<div class="nav_menu absolute hide dn">
+					<div class="nav_menu_c bg_fff">
+						<ul>
+							<li class="nmc_tit"><a href="javascript:;">男仕腕表</a></li>
+							<li class="nmc_tit"><a href="javascript:;">女士腕表</a></li>
+							<li class="nmc_tit"><a href="javascript:;">石英石</a></li>
+							<li class="nmc_tit"><a href="javascript:;">机械表</a></li>
+							<li><a href="javascript:;"></a></li>
+							<li><a href="javascript:;"></a></li>
+							<li><a href="javascript:;"></a></li>
+							<li><a href="javascript:;"></a></li>
+						</ul>
+						<ul>
+							<li class="nmc_tit"><a href="javascript:;">热门品牌</a></li>
+							<li><a href="javascript:;">sevenfriday</a></li>
+							<li><a href="javascript:;">Calvin Klein 卡尔文·克莱恩</a></li>
+							<li><a href="javascript:;">Daniel Wellington 丹尼尔·惠灵顿</a></li>
+							<li><a href="javascript:;">Tissot 天梭</a></li>
+							<li><a href="javascript:;">OMEGA 欧米茄</a></li>
+							<li><a href="javascript:;">Longines 浪琴</a></li>
+							<li><a href="javascript:;"></a></li>
+						</ul>
+					</div>
+					<div class="head_shadow"></div>
+				</div>
+				<!-- 品牌 -->
+				<div class="nav_menu absolute hide dn">
+					<div class="nav_menu_c bg_fff">
+						<ul>
+							<li class="nmc_tit"><a href="javascript:;">国际大牌 Luxury Brand</a></li>
+							<li><a href="javascript:;">Diesel 迪赛</a></li>
+							<li><a href="javascript:;">Chloe 蔻依</a></li>
+							<li><a href="javascript:;">Dior 迪奥</a></li>
+							<li><a href="javascript:;">BVLGARI 宝格丽</a></li>
+							<li><a href="javascript:;">3.1 Phillip Lim 菲利林</a></li>
+							<li><a href="javascript:;">Love Moschino 莫斯奇诺</a></li>
+							<li><a href="javascript:;">Giuseppe Zanotti 朱塞佩·萨诺</a></li>
+							<li><a href="javascript:;">Moschino 莫斯奇诺</a></li>
+						</ul>
+						<ul>
+							<li class="nmc_tit"><a href="javascript:;">设计师品牌 Designer Brand</a></li>
+							<li><a href="javascript:;">MSGM</a></li>
+							<li><a href="javascript:;">Circle</a></li>
+							<li><a href="javascript:;">Iceberg 冰山</a></li>
+							<li><a href="javascript:;">MABYMA STUDIO</a></li>
+							<li><a href="javascript:;">Dune</a></li>
+							<li><a href="javascript:;">ChloeChen</a></li>
+							<li><a href="javascript:;">Versus 范瑟丝</a></li>
+							<li><a href="javascript:;">P.A.R.O.S.H.</a></li>
+						</ul>
+					</div>
+					<div class="head_shadow"></div>
+				</div>
+				<!-- 特惠 -->
+				<div class="nav_menu absolute hide dn">
+					<div class="nav_menu_c bg_fff">
+						<ul>
+							<li class="nmc_tit"><a href="javascript:;">国际大牌 Luxury Brand</a></li>
+							<li><a href="javascript:;">Diesel 迪赛</a></li>
+							<li><a href="javascript:;">Chloe 蔻依</a></li>
+							<li><a href="javascript:;">Dior 迪奥</a></li>
+							<li><a href="javascript:;">BVLGARI 宝格丽</a></li>
+							<li><a href="javascript:;">3.1 Phillip Lim 菲利林</a></li>
+							<li><a href="javascript:;">Love Moschino 莫斯奇诺</a></li>
+							<li><a href="javascript:;">Giuseppe Zanotti 朱塞佩·萨诺</a></li>
+							<li><a href="javascript:;">Moschino 莫斯奇诺</a></li>
+						</ul>
+						<ul>
+							<li class="nmc_tit"><a href="javascript:;">男仕 Man</a></li>
+							<li><a href="javascript:;">包袋 Bags</a></li>
+							<li><a href="javascript:;">配饰 Accessories</a></li>
+							<li><a href="javascript:;">鞋履 Shoes</a></li>
+							<li><a href="javascript:;">服装 Clothes</a></li>
+						</ul>
+						<ul>
+							<li class="nmc_tit"><a href="javascript:;">女士 Woman</a></li>
+							<li><a href="javascript:;">包袋 Bags</a></li>
+							<li><a href="javascript:;">配饰 Accessories</a></li>
+							<li><a href="javascript:;">鞋履 Shoes</a></li>
+							<li><a href="javascript:;">服装 Clothes</a></li>
+						</ul>
+					</div>
+					<div class="head_shadow"></div>
+				</div>
+				<!-- M潮流 -->
+				<div class="nav_menu absolute hide dn"></div>
+			</div>
+		</nav>
+		<!-- 分割线 -->
+		<div class="head_shadow"></div>
+	</header>
+	<!-- ===========内容========== -->
+	<!-- 页面内容 -->
+	<main>
+		<article class="w1200 clear">
+			<!-- 购物车 -->
+			<section class="cart_content">
+				<div class="cart_con_tit clear">
+					<!-- 购物车 标题 -->
+					<div class="cct1 fl">
+						<label for="allcpro01" class="allcpro"><input type="checkbox" id="allcpro01" checked>全选</label>
+					</div>
+					<div class="cct2 fl">商品信息</div>
+					<div class="cct3 fl">单价</div>
+					<div class="cct4 fl">数量</div>
+					<div class="cct5 fl">小计</div>
+				</div>
+				<!-- 购物车产品列表 -->
+				<div class="cart_con_list"></div>
+				<!-- 结算 -->
+				<div class="cart_con_bar mt_10">
+					<div class="cart_bar_t clear">
+						<div class="cbt_list fl mt_10 clear">
+							<div class="cbt_check fl mr_30">
+								<label for="allcpro02" class="allcpro"><input type="checkbox" id="allcpro02" checked>全选</label>
+							</div>
+							<div class="cbt_opt fl">
+								<a href="javascript:;" class="mr_30">删除选中的商品</a>
+								<a href="javascript:;" class="mr_30">加入收藏</a>
+							</div>
+						</div>
+						<div class="cbt_pirce fr mr_30">
+							<div>
+								<span>已选商品 <span class="pro_num c_r">0</span> 件合计（不含运费、税费）：</span>
+								<span class="c_r">￥<span class="pro_total">0.00</span></span>
+							</div>
+							<div>
+								<span>活动折扣：<span>-￥<span class="pro_sale">0.00</span></span></span>
+							</div>
+						</div>
+					</div>
+					<div class="cart_bar_b clear">
+						<a class="cbb_link fl" href="list.html">继续购物</a>
+						<button class="cbb_settle fr">立即结算</button>
+					</div>
+				</div>
+			</section>
+
+			<!-- 空车 -->
+			<section class="cart_none mt_20">
+				<div class="cart_none_m">
+					<div class="car_no_ico mauto"></div>
+					<div class="car_no_txt">购物车内暂时没有商品</div>
+					<div class="car_no_log">登录后将显示您之前加入的商品</div>
+				</div>
+				<div class="cart_none_btn">
+					<a href="login.html">登录</a><a href="/">随便逛逛</a>
+				</div>
+			</section>
+
+
+			<!-- 猜你喜欢 -->
+			<section class="car_pro_rec mt_20">
+					<!-- 标题 -->
+					<div class="car_rec_tit">
+						<p>猜你喜欢</p>
+					</div>
+
+					<!-- 轮播内容 -->
+					<div class="car_rec_cont relative mauto hide">
+						<div class="car_rec_link hide">
+							<div class="car_rec_prev rec_btn absolute"><div class="jt absolute"></div></div>
+							<div class="car_rec_next rec_btn absolute"><div class="jt absolute"></div></div>
+							<ul class="clear">
+								<li>
+									<a href="javascript:;">
+										<img src="../img/h-128878-3.jpg" alt="">
+										<div class="car_rec_name">
+											<span class="rnt">Emporio Armani 安普里奥·阿玛尼</span>
+											<span class="rnm">Emporio Armani 全棉 男士 T恤</span>
+										</div>
+									</a>
+									<div class="car_rec_pri">850.00</div>
+									<div class="add_cart"><a href="javascript:;">添加到购物袋</a></div>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="../img/h-128878-3.jpg" alt="">
+										<div class="car_rec_name">
+											<span class="rnt">Emporio Armani 安普里奥·阿玛尼</span>
+											<span class="rnm">Emporio Armani 全棉 男士 T恤</span>
+										</div>
+									</a>
+									<div class="car_rec_pri">850.00</div>
+									<div class="add_cart"><a href="javascript:;">添加到购物袋</a></div>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="../img/h-128878-3.jpg" alt="">
+										<div class="car_rec_name">
+											<span class="rnt">Emporio Armani 安普里奥·阿玛尼</span>
+											<span class="rnm">Emporio Armani 全棉 男士 T恤</span>
+										</div>
+									</a>
+									<div class="car_rec_pri">850.00</div>
+									<div class="add_cart"><a href="javascript:;">添加到购物袋</a></div>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="../img/h-128878-3.jpg" alt="">
+										<div class="car_rec_name">
+											<span class="rnt">Emporio Armani 安普里奥·阿玛尼</span>
+											<span class="rnm">Emporio Armani 全棉 男士 T恤</span>
+										</div>
+									</a>
+									<div class="car_rec_pri">850.00</div>
+									<div class="add_cart"><a href="javascript:;">添加到购物袋</a></div>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="../img/h-128878-3.jpg" alt="">
+										<div class="car_rec_name">
+											<span class="rnt">Emporio Armani 安普里奥·阿玛尼</span>
+											<span class="rnm">Emporio Armani 全棉 男士 T恤</span>
+										</div>
+									</a>
+									<div class="car_rec_pri">850.00</div>
+									<div class="add_cart"><a href="javascript:;">添加到购物袋</a></div>
+								</li>
+							</ul>
+						</div>
+					</div>
+			</section>
+		</article>
+
+		<!-- 侧栏  返回顶部-->
+		<div class="sidebar">
+			<ul>
+				<li class="relative">
+					<a href="javascript:;"><i></i></a>
+					<!-- 二维码 默认隐藏 鼠标划过显示 -->
+					<div class="side_app_ewm absolute dn">
+						<div class="app_ewm_sj absolute"></div>
+						<div class="app_ewm"><img src="../img/ewm_indexTop_1.png" alt="下载app"></div>
+					</div>
+				</li>
+				<li><a href="javascript:;"><i></i></a></li>
+				<li><a href="javascript:;"><i></i></a></li>
+				<li><a href="javascript:;"><i></i></a></li>
+			</ul>
+		</div>
+	</main>
+	<!-- 版权信息 导航 帮助 -->
+	<footer>
+		<article class="foot_h w1200 fp">
+			<section class="foot_h_1 fc1 clear">
+				<ul class="">
+					<li>购物指南</li>
+					<li><a href="javascript:;">购物流程</a></li>
+					<li><a href="javascript:;">配送方式</a></li>
+				</ul>
+				<ul class="">
+					<li>支付方式</li>
+					<li><a href="javascript:;">如何付款</a></li>
+					<li><a href="javascript:;">发票制度</a></li>
+				</ul>
+				<ul class="">
+					<li>商品说明</li>
+					<li><a href="javascript:;">商品尺码</a></li>
+					<li><a href="javascript:;">商品包装</a></li>
+				</ul>
+				<ul class="">
+					<li>客服中心</li>
+					<li><a href="javascript:;">七天退换</a></li>
+					<li><a href="javascript:;">常见问题</a></li>
+				</ul>
+			</section>
+			<section class="foot_h_2 fc1">
+				<span>客服电话</span>
+				<h5>4000-250-630</h5>
+				<p>工作日 08:30-21:30</p>
+				<p>节假日 10:00-18:00</p>
+			</section>
+			<section class="foot_h_3 fc1">
+				<p>订阅美西杂志</p>
+				<input type="text" id="email" name="email" placeholder="E-mail">
+				<div class="subscribe">即刻订阅</div>
+			</section>
+			<section class="foot_h_4 fc1">
+				<div class="pl_20 clear">
+					<div class="ewm fl">
+						<span>美西时尚APP</span>
+						<div class="ewm_app"><span></span></div>
+					</div>
+					<div class="ewm fr">
+						<span>关注我们</span>
+						<div class="ewm_wx"><span></span></div>
+					</div>
+					
+				</div>
+				<p class="fr">手机扫码即可下载美西时尚APP或关注官方微信</p>
+			</section>
+			<!-- <section class="fc1"></section>
+			<section class="fc1"></section>
+			<section class="fc1"></section> -->
+		</article>
+		<article class="foot_c">
+			<section class="foot_c_top fp w1200">
+				<div class="foot_c_top_1 fc1"><span></span>100%正品保证</div>
+				<div class="foot_c_top_2 fc1"><span></span>7天无忧退货</div>
+				<div class="foot_c_top_3 fc1"><span></span>九年专注，品质保障</div>
+			</section>
+			<section class="bg_border"></section>
+			<section class="foot_c_bot fp w1200">
+				<div class="foot_c_bot_l fc1">
+					<ul class="clear">
+						<li><a href="javascript:;">媒体报道</a></li>
+						<li><a href="javascript:;">正品保证</a></li>
+						<li><a href="javascript:;">业务合作</a></li>
+						<li><a href="javascript:;">隐私声明</a></li>
+						<li><a href="javascript:;">加入美西</a></li>
+						<li><a href="javascript:;">联系我们</a></li>
+					</ul>
+					<div class="copyright"><p>Copyright ©2008-2017，美西时尚-高端时尚生活电商</p></div>
+					<div><span>沪ICP备09001221号</span><span>沪公网安备11010802017116号</span></div>
+				</div>
+				<div class="foot_c_bot_r fc1">
+					<p>合作支持</p>
+					<ul>
+						<li class="partner_1"><a href="javascript:;"></a></li>
+						<li class="partner_2"><a href="javascript:;"><span></span> 银联特约商户</a></li>
+						<li class="partner_3"><a href="javascript:;"></a></li>
+						<li class="partner_4"><a href="javascript:;"></a></li>
+						<li class="partner_5"><a href="javascript:;"></a></li>
+						<li class="partner_6"><a href="javascript:;"></a></li>
+					</ul>
+				</div>
+			</section>
+			
+		</article>
+	</footer>
+</body>
+</html>

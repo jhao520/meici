@@ -1,0 +1,35 @@
+.fp { display: flex; flex-direction: row; flex-wrap: nowrap; }
+
+.fc1 { flex: 1; }
+
+.fc1_ml6 { flex: 1; margin-left: 6px; }
+
+.mg_0_12 { margin: 0 12px; }
+
+.ml_0 { margin-left: 0; }
+
+.mr_0 { margin-left: 0; }
+
+.mt_0 { margin-left: 0; }
+
+.mb_0 { margin-left: 0; }
+
+.mauto { margin: 0 auto; }
+
+.pl_0 { padding-left: 0; }
+
+.pr_0 { padding-left: 0; }
+
+.pt_0 { padding-left: 0; }
+
+.pb_0 { padding-left: 0; }
+
+.w1200 { width: 1200px; margin: 0 auto; }
+
+.bg_fff { background: #fff; }
+
+.bg_ff0 { background: #ff0; }
+
+.bg_f0f { background: #f0f; }
+
+.bg_0ff { background: #0ff; }

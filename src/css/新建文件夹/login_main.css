@@ -1,0 +1,41 @@
+body { background: #FDFDFD; }
+
+main { height: 535px; background: #fefefe url(../img/memberbg.jpg) no-repeat center 0; }
+
+main article section { left: 50%; top: 25px; margin-left: 150px; padding: 30px 40px; width: 298px; border: 1px solid #e8e8e8; box-shadow: 3px 3px 7px #eee; background: #fff; }
+
+main article section a { color: #669aca; }
+
+main article section .title { margin-bottom: 20px; font-size: 18px; font-weight: 900; }
+
+main article section .form_icon { margin: 0 6px; width: 26px; height: 26px; background: url(img/memberico.gif) no-repeat; }
+
+main article section .user { margin-bottom: 10px; padding: 4px 0; border: 1px solid #e8e8e8; }
+
+main article section .user input { float: left; padding-left: 6px; border-left: 1px solid #e8e8e8; height: 26px; }
+
+main article section .pwd { margin-bottom: 10px; padding: 4px 0; border: 1px solid #e8e8e8; }
+
+main article section .pwd .pwd_icon { background-position: -26px 0; }
+
+main article section .pwd input { float: left; padding-left: 6px; border-left: 1px solid #e8e8e8; height: 26px; }
+
+main article section .check { padding: 6px 0; color: #999; }
+
+main article section .check label { float: left; cursor: pointer; }
+
+main article section .check label input { margin-right: 7px; vertical-align: middle; }
+
+main article section .check a { float: right; color: #999; }
+
+main article section .err_out { height: 30px; color: #f00; }
+
+main article section button { width: 100%; height: 48px; background: #333; color: #fff; font-size: 18px; border: none; }
+
+main article section .to_reg { margin: 20px 0 10px; text-align: center; }
+
+main article section .msg_code { width: 200px; }
+
+main article section .msg_code input { width: 150px; }
+
+main article section .s_code { line-height: 36px; }

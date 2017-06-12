@@ -1,0 +1,216 @@
+body{background:#f5f5f5;}
+
+main{
+
+	.goodspro{
+		padding:70px 0;
+		.pro_pic{
+			margin-left:95px;
+			.pic_small{
+				padding: 20px 0;width: 52px;max-height: 420px;z-index:2;overflow: hidden;
+				.jt{width:50px;height: 16px;background:url(img/projt.gif) no-repeat;position:absolute;}
+				.prev{top:3px;left:0;background-position:center -32px;}
+				.next{bottom:0;left:0;background-position:center -48px;}
+				.pic_small_li{
+					li{
+						margin-top: 7px;height: 62px;
+						img{
+							border:1px solid #fff;
+							&:hover{border:1px solid #ccc;}
+						}
+					}
+				}
+			}
+			.pic_large{
+				margin-left: 20px;
+				a{display:block;width:384px;height:460px;}
+			}
+		}
+
+		.pro_info{
+			padding:20px 0 0 85px;
+			h1{
+				font-size:14px;font-weight:normal;
+				a{font-size:24px;display:block;max-width:361px;white-space: nowrap;text-overflow:ellipsis;overflow: hidden;color:#333;}
+			}
+			.pro_info_tit{font-size:14px;margin: 6px 20px 0 0;max-width:361px;white-space: nowrap;text-overflow:ellipsis;overflow: hidden;}
+			.global{margin-top: 6px;border:1px solid #917661;border-radius: 3px;width: 45px;text-align: center;color:#917661;}
+			.pro_info_pirce{
+				margin: 20px 0 14px;
+				span{line-height:27px;}
+				b{font-size:18px;}
+				i::before{content:"￥";font-style:normal;}
+			}
+			.pro_info_color{
+				li{margin-right: 5px;border-radius: 2px;}
+			}
+			.pro_info_size{
+				padding: 20px 0;line-height: 28px;
+				span{line-height:40px;}
+				li{
+					margin: 5px 5px 5px 0;
+					a{display:block;min-widht:42px;height: 28px;border-radius: 2px;border:1px solid #e8e8e8;padding: 0 5px;}
+				}
+				p{
+					margin: 5px 0 0 55px;
+					a{color:#999;text-decoration:underline;}
+				}
+			}
+			.pro_info_btn{
+				button{height: 45px;line-height:45px;color:#fff;font-size:14px;border:none;border-radius: 2px;cursor: pointer;}
+				.add_buy button{
+					width: 152px;background:#333;
+				}
+				.add_car button{
+					margin:0 10px;width: 143px;background:#c53f40;
+				}
+				.pro_collec,.pro_share{margin-left: 10px;border:1px solid #e8e8e8;width: 43px;height: 43px;}
+
+			}
+			.pro_info_exp{
+				margin-top: 20px;color:#999;
+				li{padding: 15px 0;width: 100%;border-bottom:1px solid #f5f5f5;}
+				span{float:left;width: 78px;}
+				p{float:left;width: 345px;}
+			}
+
+			.span_w55{
+				span{float:left;width: 55px;color:#999;}
+			}
+			li{float:left;}
+		}
+	}
+	
+	.pro_recommend{
+		.recom_cont{
+			padding: 20px 40px;margin: 0 auto;overflow: hidden;width: 1032px;
+			.jt{width: 17px;height: 38px;top:100px;}
+			.rec_btn{width: 17px;height: 300px;background:#fff;cursor:pointer;z-index:3;}
+			.rec_prev{
+				left:0;
+				.jt{background:url('img/pre_btn.png') no-repeat;}
+			}
+			.rec_next{
+				right:0;
+				.jt{background:url('img/next_btn.png') no-repeat;}
+			}
+		}
+		ul{
+			width: 10000px;
+			li{
+				float:left;margin: 0 20px;width: 218px;height: 297px;text-align:center;position:relative;overflow: hidden;
+				span{color:#999;}
+				.recom_name{
+					padding: 10px 16px 16px;margin-bottom: 5px;overflow: hidden;white-space: normal;text-overflow: ellipsis;
+					.rnt{color:#333;font-weight:blod;}
+				}
+				img{display:inline-block;width: 160px;}
+			}
+		}
+	}
+
+	.pro_recom{padding: 0 20px;}
+
+	.recom_tit{
+		padding-top: 15px;height: 63px;border-bottom: 1px solid #e8e8e8;
+		.tab_tit{
+			padding:0 0 5px 70px;height: 45px;background:url('img/m.png') no-repeat left center;
+			.tab_tit_m{font-size:14px;color:#999;}
+			p{color:#666;}
+		}
+	
+	}
+
+	.pro_tab{
+		margin-top: 20px;height: 60px;
+		.pro_tab_l{
+			height: 60px;border-bottom: 1px solid #e8e8e8;
+			ul li{
+				float:left;width: 110px;height: 60px;line-height: 60px;text-align: center;font-size:14px;cursor:pointer;
+			}
+		}
+		.pro_tab_r{
+			margin-right: 10px;
+			button{width: 106px;height: 40px;margin: 10px 10px 0 0;border:none;color:#fff;font-size:14px;}
+			.add_buy button{background:#333;}
+			.add_car button{background:#c53f40;}
+		}
+	}
+
+	.pro_main{
+		.tab_cont{padding:0 30px;margin-bottom: 20px;}
+		.pro_info{
+			width: 1060px;margin: 0 auto;padding-bottom: 30px;
+			.bor_bot{border-bottom: 1px solid #e8e8e8;}
+			.pro_info_row{line-height: 52px;}
+			p{display:inline-block;width: 74px;}
+			span{color:#999;}
+		}
+		.pro_brand{
+			padding: 40px 0;
+			.brand_story_l{padding: 0 75px 0 45px;width: 690px;font-size:14px;color:#909090;}
+			.brand_story_r{
+				width: 330px;text-align: center;
+				img{width: 170px;margin:0 auto;}
+				a{display:block;margin:15px auto 0;width: 123px;height: 38px;line-height: 38px;border:1px solid #e8e8e8;border-radius: 3px;}
+			}
+			.story_r_l{width: 1px;height: 65px;background: #e8e8e8;top:25px;left:0;}
+		}
+		.pro_img{
+			width: 1120px;margin: 0 auto;
+			li{
+				float:left;margin: 0 35px 75px;
+				img{width: 485px;}
+			}
+		}
+
+		.pro_size_main{
+			text-align:center;
+			table{border-spacing: 0;border-collapse:collapse;}
+			td{padding: 10px 0;}
+			span{display:block;margin: 3px 0;padding: 3px 0;background:#f5f5f5;}
+			.f_weight{padding: 10px 0;font-weight:bold;background:#eee;}
+		}
+		.service{
+			padding: 10px 15px 20px;line-height: 2;
+		}
+	}
+
+
+
+
+	.sidebar{
+		position:fixed;right:0;bottom:100px;border: 1px solid #ddd;background:#fff;z-index:3;
+		li{
+			position: relative;
+			a{
+				display:block;padding-top: 12px;width: 58px;height: 46px;border-bottom:1px solid #ddd;
+				i{display:block;margin: 0 auto;width: 35px;height: 35px;background:url('img/consult.png') no-repeat;}
+			}
+			&:hover{background:#666;}
+			&:nth-child(1){
+				i{background-position: 0 0;}
+				&:hover i{background-position: -35px 0;}
+			}
+			&:nth-child(2){
+				i{background-position: 0 -70px;}
+				&:hover i{background-position: -35px -70px;}
+			}
+			&:nth-child(3){
+				i{background-position: 0 -35px;}
+				&:hover i{background-position: -35px -35px;}
+			}
+			&:last-child{
+				a{border-bottom:none;}
+				i{background-position: 0 -105px;}
+				&:hover i{background-position: -35px -105px;}
+			}
+			
+			.side_app_ewm{
+				left:-107px;top:-17px;
+				.app_ewm_sj{width: 8px;height: 17px;background:url('img/headico.png') -97px -3px no-repeat;top:38px;right:-7px;z-index:2;}
+				.app_ewm{padding: 10px;background: #fff;border:1px solid #ececec;}
+			}
+		}
+	}
+}

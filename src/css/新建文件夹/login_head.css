@@ -1,0 +1,9 @@
+header { width: 100%; background: #fff; margin-bottom: 20px; }
+
+header article .logo a { display: block; margin-top: 49px; width: 160px; height: 65px; text-indent: -99999px; background: url(../img/logo_02.png) no-repeat; }
+
+header article .help_tel { font-size: 14px; line-height: 146px; }
+
+header article .help_tel span { display: inline-block; margin: 0 5px 0 10px; width: 20px; height: 20px; background: url(img/headico.png) no-repeat; vertical-align: -4px; }
+
+header .head_shadow { height: 9px; background: url(img/headerbg.png) repeat-x; }

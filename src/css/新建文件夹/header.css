@@ -1,0 +1,63 @@
+header { background: #fff; margin-bottom: 20px; }
+
+header i { display: inline-block; margin-right: 5px; width: 20px; height: 20px; background: url(img/headico.png) no-repeat; vertical-align: middle; }
+
+header .sanjiao { width: 17px; height: 8px; z-index: 2; position: absolute; }
+
+header .top-warp { width: 100%; height: 35px; background: #fafafa; border-bottom: 1px solid #f5f5f5; }
+
+header .top-warp li { float: left; }
+
+header .top-warp li a:hover { color: #333; }
+
+header .top-warp .left { margin-top: 8px; }
+
+header .top-warp .left li { margin-right: 20px; }
+
+header .top-warp .left .down_ewm_app { padding-left: 20px; border-left: 1px solid #d9d9d9; }
+
+header .top-warp .left .down_ewm_app i { background-position: -20px 0; }
+
+header .top-warp .left .down_ewm_app .down_app { padding: 10px; border: 1px solid #ececec; text-align: center; background: #fff; z-index: 1; top: 18px; left: 26px; }
+
+header .top-warp .left .down_ewm_app .down_app a { display: block; }
+
+header .top-warp .left .down_ewm_app .down_app i { background-position: -80px -12px; top: -8px; left: 50%; margin-left: -8px; }
+
+header .top-warp .right { margin-top: 8px; }
+
+header .top-warp .right li { margin-left: 20px; }
+
+header .top-warp .right .shoping_car { padding-left: 20px; border-left: 1px solid #d9d9d9; }
+
+header .top-warp .right .shoping_car i { background-position: -40px 0; }
+
+header .top-warp .right .shoping_car .header_car { padding-top: 7px; left: -276px; top: 18px; width: 383px; z-index: 999; }
+
+header .top-warp .right .shoping_car .header_car i { background-position: -80px -12px; top: 0; left: 50%; margin-left: 135px; }
+
+header .top-warp .right .shoping_car .header_car .header_car_c { border: 1px solid #e8e8e8; background: #fff; }
+
+header .top-warp .right .shoping_car .header_car .header_car_c p { text-align: center; padding: 30px 0; }
+
+header #head { height: 100px; }
+
+header #head .logo { padding-top: 35px; width: 360px; }
+
+header #head .logo a { display: block; margin: 0 auto; width: 280px; height: 60px; text-indent: -99999px; background: url(../img/logo.png) no-repeat; }
+
+header #head .seach { top: 45px; right: 0; }
+
+header #head .seach input { width: 165px; line-height: 29px; color: #999; border-bottom: 1px solid #e8e8e8; }
+
+header #head .seach button { width: 30px; height: 30px; border: none; cursor: pointer; background: none; }
+
+header #head .seach button i { background-position: -60px 0; }
+
+header nav li { float: left; position: relative; }
+
+header nav li a { display: block; padding: 25px 0; width: 120px; font-size: 14px; font-weight: bold; text-align: center; }
+
+header nav li a:hover { color: #333; }
+
+header .head_shadow { height: 8px; background: url(img/headerbg.png) repeat-x left bottom; }
