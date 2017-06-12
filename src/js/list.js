@@ -1,7 +1,8 @@
 require(['config'],function(){
 
-	require(['jquery','header'],function($,header){
-		header.nav();
+	require(['jquery','animation'],function($,animation){
+		// 导航 鼠标划过显示
+		animation.nav();
 
 		let pageNum = 1;
 		let qty = 20;
@@ -79,6 +80,18 @@ require(['config'],function(){
 			}else{
 				$(this).parent().siblings().find('.font_s').text('+');
 				$(this).find('.font_s').text('-');
+			}
+		});
+
+
+		// 侧导航随窗口滚动置顶
+		let theTop = $( ".list_menu" )[0].offsetTop;
+		$(window).scroll(function(){
+			console.log($(window).scrollTop(),$( ".list_menu" )[0].offsetTop)
+			if($(window).scrollTop() > theTop){
+				$( ".list_menu" ).css({position:'fixed',top:10});
+			}else if($(window).scrollTop() < theTop){
+				$( ".list_menu" ).css({position:'relative',top:0});
 			}
 		});
 

@@ -1,8 +1,12 @@
 require(['config'],function(){
-	require(['jquery','header'],function($,header){
+	require(['jquery','animation'],function($,animation){
 
 		// 导航 鼠标划过显示
-		header.nav();
+		animation.nav();
+		// banner图轮播
+		animation.slides();
+		// 产品展示轮播
+		animation.roll();
 
 	});
 });

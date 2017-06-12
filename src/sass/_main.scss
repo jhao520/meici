@@ -3,9 +3,16 @@ $colorLine:#999;
 main{
 
 	.banner{
-		height:500px;overflow:hidden;
+		overflow:hidden;height: 600px;
+		// .ban_control{width: 3600px;left:-1200px;}
+		ul{width: 3600px;height: 600px;}
+		li{float:left;}
 		a{
-			&.ban_prev{background:url(img/jt7.png) no-repeat;}
+			&.jt{display:block;width: 27px;height: 66px;top:272px;background:url(img/jt7.png) no-repeat;display:none;}
+			&.ban_prev{left:10px;background-position: 0 -201px;}
+			&.ban_prev:hover{background-position: 0 0;}
+			&.ban_next{right:10px;background-position: 0 -134px;}
+			&.ban_next:hover{background-position: 0 -67px;}
 		}
 	}
 
@@ -24,6 +31,7 @@ main{
 			}
 		}
 		.being_sold{
+			height:265px;
 			.jt{width: 17px;height: 38px;top:100px;}
 			.rec_btn{width: 17px;height: 300px;background:#fff;cursor:pointer;z-index:3;}
 			.rec_prev{

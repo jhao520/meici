@@ -159,7 +159,21 @@ header .nav_menu ul li.nmc_tit { font-weight: bold; }
 
 header .head_shadow { height: 8px; background: url(img/headerbg.png) repeat-x left bottom; }
 
-main .banner { height: 500px; overflow: hidden; }
+main .banner { overflow: hidden; height: 600px; }
+
+main .banner ul { width: 3600px; height: 600px; }
+
+main .banner li { float: left; }
+
+main .banner a.jt { display: block; width: 27px; height: 66px; top: 272px; background: url(img/jt7.png) no-repeat; display: none; }
+
+main .banner a.ban_prev { left: 10px; background-position: 0 -201px; }
+
+main .banner a.ban_prev:hover { background-position: 0 0; }
+
+main .banner a.ban_next { right: 10px; background-position: 0 -134px; }
+
+main .banner a.ban_next:hover { background-position: 0 -67px; }
 
 main .weekly .weekly_top { margin: 23px 0 10px; height: 54px; }
 
@@ -170,6 +184,8 @@ main .weekly .weekly_top .wt_title { width: 260px; height: 48px; margin: 0 auto;
 main .weekly .weekly_content .content a { display: block; }
 
 main .weekly .weekly_content .content a:nth-child(2) { margin-top: 12px; }
+
+main .weekly .being_sold { height: 265px; }
 
 main .weekly .being_sold .jt { width: 17px; height: 38px; top: 100px; }
 

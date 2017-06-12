@@ -1,8 +1,9 @@
 require(['config'],function(){
 
-	require(['jquery','header','gdszoom'],function($,header,gdsz){
-		console.log($,header,gdsz);
-		header.nav();
+	require(['jquery','animation','gdszoom'],function($,animation,gdsz){
+
+		// 导航 鼠标划过显示
+		animation.nav();
 
 		$('.pic_large').gdszoom({width:100,height:100});
 
