@@ -15,7 +15,7 @@ img { display: block; width: 100%; }
 
 ul, ol, li { list-style: none; }
 
-input, select, option { outline: 0; border: none; background: transparent; }
+input, select, option, button { outline: 0; border: none; background: transparent; }
 
 input { vertical-align: middle; }
 
@@ -83,9 +83,10 @@ input { vertical-align: middle; }
 
 .bg_0ff { background: #0ff; }
 
-header { background: #fff; margin-bottom: 20px; }
+/*===============头部============*/
+header { background: #fff; margin-bottom: 20px; /*===============logo 搜索框============*/ /*===============顶部导航============*/ /*===============导航详细============*/ /*===============阴影============*/ }
 
-header .top-warp { width: 100%; height: 35px; background: #fafafa; border-bottom: 1px solid #f5f5f5; }
+header .top-warp { width: 100%; height: 35px; background: #fafafa; border-bottom: 1px solid #f5f5f5; /*===============购物车============*/ }
 
 header .top-warp i { display: inline-block; margin-right: 5px; width: 20px; height: 20px; background: url(img/headico.png) no-repeat; vertical-align: middle; }
 
@@ -124,6 +125,40 @@ header .top-warp .right .shoping_car .header_car i { background-position: -80px 
 header .top-warp .right .shoping_car .header_car .header_car_c { border: 1px solid #e8e8e8; background: #fff; }
 
 header .top-warp .right .shoping_car .header_car .header_car_c p { text-align: center; padding: 30px 0; }
+
+header .top-warp .hcc_info { /*======列表添加商品======*/ /*======总价 结算======*/ }
+
+header .top-warp .hcc_info .hcc_info_t { padding: 15px 20px 5px; }
+
+header .top-warp .hcc_info .hcc_info_c { padding-left: 20px; }
+
+header .top-warp .hcc_info .hcc_info_c .hcc_info_c_lis { padding-right: 60px; margin-bottom: 10px; }
+
+header .top-warp .hcc_info .hcc_info_c .hcc_info_c_lis .hcc_lis_img img { width: 60px; }
+
+header .top-warp .hcc_info .hcc_info_c .hcc_info_c_lis .hcc_lis_con { margin-left: 10px; margin-top: -5px; }
+
+header .top-warp .hcc_info .hcc_info_c .hcc_info_c_lis .hcc_lis_con .full_line { display: block; width: 230px; white-space: normal; text-overflow: ellipsis; overflow: hidden; }
+
+header .top-warp .hcc_info .hcc_info_c .hcc_info_c_lis .hcc_lis_con .hlc_name { font-size: 14px; }
+
+header .top-warp .hcc_info .hcc_info_c .hcc_info_c_lis .hcc_lis_con .c_gray { color: #999; }
+
+header .top-warp .hcc_info .hcc_info_c .hcc_info_c_lis .hcc_lis_con .hcc_price { margin: 0 5px; }
+
+header .top-warp .hcc_info .hcc_info_c .hcc_info_c_lis .hcc_lis_con .hcc_price::before { content: '￥'; }
+
+header .top-warp .hcc_info .hcc_info_c .hcc_info_c_lis .hcc_lis_con .global { display: inline-block; margin-top: 5px; border: 1px solid #917661; color: #917661; border-radius: 2px; width: 45px; font-size: 12px; text-align: center; }
+
+header .top-warp .hcc_info .hcc_info_c .hcc_info_c_lis .hcc_Lis_del { right: 15px; top: 20px; font-size: 14px; color: #ccc; font-family: '宋体'; width: 30px; height: 30px; line-height: 30px; text-align: center; cursor: pointer; }
+
+header .top-warp .hcc_info .hcc_opt { padding: 15px; background: #f7f7f7; }
+
+header .top-warp .hcc_info .hcc_opt .hcc_price { line-height: 42px; font-size: 14px; }
+
+header .top-warp .hcc_info .hcc_opt .hcc_price span { color: #e8203b; }
+
+header .top-warp .hcc_info .hcc_opt .hcc_buy { display: block; width: 114px; height: 42px; background: #333; text-align: center; color: #fff; line-height: 42px; font-size: 14px; }
 
 header #head { height: 100px; }
 

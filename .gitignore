@@ -1,9 +1,9 @@
-#过滤node模块文件夹
+﻿#过滤node模块文件夹
 /node_modules
 
 /doc
 
-/img
+src/img
 
 /.svn
 

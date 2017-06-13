@@ -22,7 +22,7 @@
 			// 添加插件样式
 			$small.addClass('gds-zoom');
 
-			var $smallImg = $(this).children('img');
+			var $smallImg = $(this).find('img');
 
 			// 生成大图
 			// $smallImg.data('msg',{})
@@ -83,7 +83,7 @@
 				ratio = $smallImg.outerWidth()/$bigImg.outerWidth();
 				// console.log(ratio,$smallImg.outerWidth(),$bigImg.outerWidth());
 				// 设置放大镜样式
-				$minzoom.css({width:opt.width*ratio,height:opt.height*ratio});
+				// $minzoom.css({width:opt.width*ratio,height:opt.height*ratio});
 
 				
 			})

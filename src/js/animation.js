@@ -12,12 +12,15 @@ define(['jquery'],function($){
 			});
 		},
 
+		// 轮播图
 		slides:function(){
 			var $ban = $('.banner');
 			var $ul = $ban.find('ul');
 			var $li = $ban.find('ul li');
 			$ban.find('li').eq(0).clone().appendTo($ul);
 			var index = 0;
+
+			clearInterval(timer);
 			var timer = setInterval(next,2000);
 
 			$ban.on('mouseenter',function(){
@@ -30,7 +33,7 @@ define(['jquery'],function($){
 
 			$('.ban_prev').click(function(){
 				if(index <= 0){
-					index = $li.length-1;
+					index = $li.length;
 					$ul.css({left:$li.outerWidth()*-index});
 				}
 				index--;
@@ -41,7 +44,7 @@ define(['jquery'],function($){
 			});
 			function next(){
 				index++;
-				if(index > $li.length-1){
+				if(index > $li.length){
 					index = 1;
 					$ul.css({left:0});
 				}
@@ -56,11 +59,12 @@ define(['jquery'],function($){
 			}
 		},
 
+		// 滚动图
 		roll:function(){
 			var idx = 0;
-			var speed = 200;
 			var $ul = $('.sold_ul');
 			var $li = $('.sold_ul li');
+			var speed = $li.outerWidth(true);
 			var timer = setInterval(next,2000);
 
 			$('.being_sold').on('mouseenter',function(){
@@ -96,7 +100,25 @@ define(['jquery'],function($){
 				.stop().animate({left:speed*-idx})
 			}
 
+		},
+
+		// 鼠标划过显示
+		sideApp:function(sel,ect){
+			sel.on('mouseenter',function(){
+				ect.fadeIn('fast');
+			}).on('mouseleave',function(){
+				ect.fadeOut('fast');
+			});
+		},
+
+		// 返回顶部
+		toTop:function(){
+			$('.to_top').click(function(){
+				console.log(document.offset);
+				$(window).scrollTop(0);
+			});
 		}
+
 
 	}
 

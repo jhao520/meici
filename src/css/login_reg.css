@@ -15,7 +15,7 @@ img { display: block; width: 100%; }
 
 ul, ol, li { list-style: none; }
 
-input, select, option { outline: 0; border: none; background: transparent; }
+input, select, option, button { outline: 0; border: none; background: transparent; }
 
 input { vertical-align: middle; }
 

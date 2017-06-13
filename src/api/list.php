@@ -1,26 +1,10 @@
 <?php
 	
-	// 1、链接数据库
-	// 配置参数
-	$servername = 'localhost';
-	$username = 'root';
-	$password = '';
-	$database = 'meici';
-
-	// 连接数据库
-	$conn = new mysqli($servername,$username,$password,$database);
-
-	// 检测连接
-	if($conn->connect_errno){
-		die('连接失败'.$conn->connect_errno);
-	}
-
-	// 设置字符集
-	$conn->set_charset('utf8');
-
+	include 'connect.php';
 	// 分页
 	$page = isset($_GET['page']) ? $_GET['page'] : 1;
 	$qty = isset($_GET['qty']) ? $_GET['qty'] : 20;
+	// $id = isset($_GET['id']) ? $_GET['id'] : 1;
 
 	// 查询数据库
 	$sql = "select * from goods limit ".($page-1)*$qty.",".$qty;
@@ -45,4 +29,6 @@
 
 	echo json_encode($res,JSON_UNESCAPED_UNICODE);
 
+	//关闭连接
+	$conn->close();
 ?>

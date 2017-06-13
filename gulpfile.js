@@ -13,9 +13,9 @@ gulp.task('compileSass',function(){
 	.pipe(gulp.dest('./src/css'));
 });
 
-/*gulp.task('jtSass',function(){
+gulp.task('jtSass',function(){
 	gulp.watch('./src/sass/*.scss',['compileSass']);
-});*/
+});
 
 // 浏览器同步插件
 var beowserSync = require('browser-sync');
