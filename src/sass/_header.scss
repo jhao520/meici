@@ -62,11 +62,11 @@ header{
 						.full_line{display:block;width: 230px;white-space: normal;text-overflow: ellipsis;overflow: hidden;}
 						.hlc_name{font-size: 14px;}
 						.c_gray{color:#999;}
+						.hcc_number::before{content:"╳";}
 						.hcc_price{
 							margin:0 5px;
 							&::before{content:'￥';}
 						}
-						.global{display:inline-block;margin-top: 5px;border:1px solid #917661;color:#917661;border-radius: 2px;width: 45px;font-size: 12px;text-align: center;}
 					}
 					.hcc_Lis_del{right:15px;top:20px;font-size: 14px;color:#ccc;font-family:'宋体';width: 30px;height: 30px;line-height: 30px;text-align: center;cursor:pointer;}
 				}

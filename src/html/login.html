@@ -5,6 +5,7 @@
 	<title>美西时尚-登录</title>
 	<!-- <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css"> -->
 	<link rel="stylesheet" href="../css/login_reg.css">
+	<script src="../js/require.js" data-main="../js/login"></script>
 </head>
 <body>
 	<!-- logo -->
@@ -19,15 +20,15 @@
 	<main>
 		<article class="w1200 relative">
 			<section class="absolute">
-				<form action="#">
+				<!-- <form action="#"> -->
 					<div class="title">登录美西时尚</div>
 					<div class="user clear">
-						<div class="user_icon form_icon"></div>
+						<div class="user_icon form_icon fl"></div>
 						<input type="text" id="username" name="username" placeholder="请输入手机号或邮箱">
 					</div>
 					<div class="pwd clear">
-						<div class="pwd_icon form_icon"></div>
-						<input type="passwrod" id="passwrod" name="passwrod" placeholder="请输入密码">
+						<div class="pwd_icon form_icon fl"></div>
+						<input type="password" id="password" name="password" placeholder="请输入密码">
 					</div>
 					<div class="check clear">
 						<label for="login_auto"><input id="login_auto" type="checkbox" checked><span>自动登录</span></label>
@@ -36,7 +37,7 @@
 					<div class="err_out"></div>
 					<div class="login_btn"><button>登录</button></div>
 					<div class="to_reg"><a href="register.html" target="_blank">立即注册</a></div>
-				</form>
+				<!-- </form> -->
 			</section>
 		</article>
 	</main>

@@ -14,7 +14,9 @@ require.config({
 
 	// 添加依赖
 	shim:{
-		'gdszoom':['jquery']
+		'gdszoom':['jquery'],
+
+		'cookie':['common']
 	}
 	
 	

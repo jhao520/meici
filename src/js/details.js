@@ -1,6 +1,6 @@
 require(['config'],function(){
 
-	require(['jquery','animation','gdszoom'],function($,animation,gdsz){
+	require(['jquery','animation','gdszoom','common','cookie'],function($,animation,gdsz,com,cookie){
 
 		// 导航 鼠标划过显示
 		animation.nav();
@@ -33,7 +33,7 @@ require(['config'],function(){
 				let pic = res.data.map(item=>{
 					if(item.id == id){
 						return `
-							<div class="pro_pic fc1 clear relative">
+							<div class="pro_pic fc1 clear relative"  data-guid="${item.id}">
 								<!-- 缩略图 -->
 								<div class="pic_small fl relative">
 									<div class="prev jt"></div>
@@ -60,7 +60,7 @@ require(['config'],function(){
 					if(item.id == id){
 						return `
 							<!-- 介绍 -->
-							<div class="pro_info fc1">
+							<div class="pro_info fc1" data-guid="${item.id}">
 								<!-- 商品名字 -->
 								<h1><a href="/">${item.brand}</a></h1>
 								<!-- 品牌 标题	 -->
@@ -167,7 +167,7 @@ require(['config'],function(){
 										<span class="c_gray full_line">${item.name}</span>
 										<span class="global">全球购</span>
 										<span class="hcc_price">${item.price}</span>
-										<span class="hcc_number c_gray">╳${num}</span>
+										<span class="hcc_number c_gray">${num}</span>
 									</div>
 									<div class="hcc_Lis_del absolute">╳</div>
 								</div>
@@ -190,6 +190,8 @@ require(['config'],function(){
 							$('.hcc_info').hide().siblings().show();
 						}
 					});
+
+
 
 				});
 				// 尺寸说明 跳转
@@ -241,24 +243,36 @@ require(['config'],function(){
 				// 推荐->动画
 				var idx = 0;
 				var speed = 4;
+				var liWidth = $('.recom_cont li').outerWidth(true);
+				$('.recom_cont ul').css({width:liWidth*res.qty});
 				$('.recom_cont').on('click','.rec_next',function(){
 					idx++;
 					if(idx > res.qty/speed-1){
 						idx = 0;
-						$('.recom_cont ul').css({left:20});
+						$('.recom_cont ul').css({left:30});
 					}
-					$('.recom_cont ul').css({width:$('.recom_cont li').outerWidth(true)*res.qty}).stop()
-					.animate({left:$('.recom_cont li').outerWidth(true)*speed*-idx + 20});
+					$('.recom_cont ul').stop().animate({left:liWidth*speed*-idx + 30});
 				}).on('click','.rec_prev',function(){
 					idx--;
 					if(idx < 0){
 						idx = res.qty/speed -1;
-						$('.recom_cont ul').css({left:$('.recom_cont li').outerWidth(true)*speed*-idx + 20});
+						$('.recom_cont ul').css({left:liWidth*speed*-idx + 30});
 					}
-					$('.recom_cont ul').css({width:$('.recom_cont li').outerWidth(true)*res.qty}).stop()
-					.animate({left:$('.recom_cont li').outerWidth(true)*speed*-idx + 20});
-				})
+					$('.recom_cont ul').stop().animate({left:liWidth*speed*-idx + 30});
+				});
+
+
+
+				$('.add_buy').on('click','button',function(){
+					console.log(666);
+					var id = $(this).closest('.pro_info').data('guid');
+					window.location.href = '../html/cart.html?id='+ id;
+				});
+
+
 			}
+
+
 		});
 		
 		// 售后，tab标签切换
@@ -272,7 +286,6 @@ require(['config'],function(){
 			var id = $(this).data('guid');
 			window.location.href = '../html/details.html?id='+ id;
 		});
-
 
 	});
 });
