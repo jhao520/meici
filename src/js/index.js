@@ -5,8 +5,6 @@ require(['config'],function(){
 		animation.nav();
 		// banner图轮播
 		animation.slides();
-		// 产品展示轮播
-		animation.roll();
 		// 顶部app二维码
 		animation.sideApp($('.down_ewm_app'),$('.down_app'));
 		// 右侧边栏app二维码
@@ -73,7 +71,9 @@ require(['config'],function(){
 					var id = $(this).closest('.pro_list_specific').data('guid');
 					window.location.href = 'html/details.html?id='+ id;
 				});
-
+				
+				// 产品展示轮播
+				animation.roll();
 			}
 
 		});

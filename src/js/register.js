@@ -1,6 +1,6 @@
 require(['config'],function(){
 
-	require(['jquery'],function($){
+	require(['jquery','common'],function($,com){
 
 		// 设置时间戳					 
 		var now = new Date();
@@ -104,7 +104,8 @@ require(['config'],function(){
 
 							setCookie('meiciuser',$('#username').val(),now.toUTCString(),"/");
 							setCookie('meicipswd',pswdjm,now.toUTCString(),"/");
-							window.location.reload();
+
+							window.location.href = "../index.html";
 
 						}
 
