@@ -17,6 +17,7 @@ require.config({
 		'gdszoom':['jquery'],
 
 		'cookie':['common']
+
 	}
 	
 	

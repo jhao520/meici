@@ -138,6 +138,8 @@ header .top-warp .right { margin-top: 8px; }
 
 header .top-warp .right li { margin-left: 20px; }
 
+header .top-warp .right .login_status a { margin-left: 20px; }
+
 header .top-warp .right .shoping_car { padding-left: 20px; border-left: 1px solid #d9d9d9; }
 
 header .top-warp .right .shoping_car i { background-position: -40px 0; }
@@ -154,7 +156,7 @@ header .top-warp .hcc_info { /*======列表添加商品======*/ /*======总价 �
 
 header .top-warp .hcc_info .hcc_info_t { padding: 15px 20px 5px; }
 
-header .top-warp .hcc_info .hcc_info_c { padding-left: 20px; }
+header .top-warp .hcc_info .hcc_info_c { padding-left: 20px; overflow: hidden; max-height: 245px; }
 
 header .top-warp .hcc_info .hcc_info_c .hcc_info_c_lis { padding-right: 60px; margin-bottom: 10px; }
 
@@ -162,7 +164,7 @@ header .top-warp .hcc_info .hcc_info_c .hcc_info_c_lis .hcc_lis_img img { width:
 
 header .top-warp .hcc_info .hcc_info_c .hcc_info_c_lis .hcc_lis_con { margin-left: 10px; margin-top: -5px; }
 
-header .top-warp .hcc_info .hcc_info_c .hcc_info_c_lis .hcc_lis_con .full_line { display: block; width: 230px; white-space: normal; text-overflow: ellipsis; overflow: hidden; }
+header .top-warp .hcc_info .hcc_info_c .hcc_info_c_lis .hcc_lis_con .full_line { display: block; width: 230px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
 
 header .top-warp .hcc_info .hcc_info_c .hcc_info_c_lis .hcc_lis_con .hlc_name { font-size: 14px; }
 
@@ -230,9 +232,9 @@ main .list_scr .list_scr_item .list_title .font_s { font-size: 24px; font-family
 
 main .list_scr .list_scr_item .list_all_s { padding-top: 10px; }
 
-main .list_scr .list_scr_item .list_all_s li a { display: block; padding: 5px 0; overflow: hidden; white-space: normal; text-overflow: ellipsis; }
+main .list_scr .list_scr_item .list_all_s li a { display: block; padding: 5px 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 
-main .list_scr .list_scr_item .list_all_s li a .las_c { width: 215px; overflow: hidden; white-space: normal; text-overflow: ellipsis; }
+main .list_scr .list_scr_item .list_all_s li a .las_c { width: 215px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 
 main .list_scr .list_scr_item .list_all_s li a .las_c span { color: #999; }
 
@@ -286,19 +288,23 @@ main .list_pro .li_pro_tit .li_screen a { margin-left: 35px; padding-right: 12px
 
 main .list_pro .li_pro_tit .li_screen a i { display: inline-block; margin-left: 2px; width: 10px; height: 12px; background: url("img/crumbsIco.gif") no-repeat -62px 0; vertical-align: -2px; }
 
+main .list_pro .li_pro_tit .li_screen a i.asc { background-position: -82px 0; }
+
+main .list_pro .li_pro_tit .li_screen a i.desc { background-position: -72px 0; }
+
 main .list_pro .li_pages { margin: 18px 20px 0 0; }
 
 main .list_pro .li_pages a, main .list_pro .li_pages span { float: left; margin: 0 9px; width: 20px; height: 20px; line-height: 20px; text-align: center; cursor: pointer; }
 
-main .list_pro .li_pages .prev, main .list_pro .li_pages .next { font-size: 0; background: url("img/pagination.gif") no-repeat; }
+main .list_pro .li_pages .page_prev, main .list_pro .li_pages .page_next { font-size: 0; background: url("img/pagination.gif") no-repeat; }
 
-main .list_pro .li_pages .prev { background-position: 0 0; }
+main .list_pro .li_pages .page_prev { background-position: 0 0; }
 
-main .list_pro .li_pages .prev:hover { background-position: 0 -20px; }
+main .list_pro .li_pages .page_prev:hover { background-position: 0 -20px; }
 
-main .list_pro .li_pages .next { background-position: -20px 0; }
+main .list_pro .li_pages .page_next { background-position: -20px 0; }
 
-main .list_pro .li_pages .next:hover { background-position: -20px -20px; }
+main .list_pro .li_pages .page_next:hover { background-position: -20px -20px; }
 
 main .list_pro .li_pages span.active { display: block; background: #333; color: #fff; border-radius: 2px; }
 

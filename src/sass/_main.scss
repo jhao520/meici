@@ -48,7 +48,7 @@ main{
 					float:left;margin: 5px 20px 0;width: 160px;text-align:center;position:relative;overflow: hidden;
 					a{	
 						color:#555;
-						p{height:22px;text-align:center;}
+						p{height:22px;text-align:center;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
 					}
 					.s_gray{text-align:center;color:$colorLine;}
 					img{display:inline-block;width: 160px;}

@@ -2,11 +2,17 @@ define(['jquery'],function($){
 	return {
 		// 导航 鼠标划过显示
 		nav:function(){
+			var timeout;
 			$('#nav').on('mouseenter','.nav_t li',function(){
 				$(this).siblings().find('i').hide();
-				$(this).find('i').show()
-				$('.nav_menu').eq($(this).index()).show().siblings().hide();
+				clearTimeout(timeout);
+				timeout = setTimeout(()=>{
+					$(this).find('i').stop().show();
+					$('.nav_menu').eq($(this).index()).stop(true,true).show().siblings().hide();
+
+				},300);
 			}).on('mouseleave',function(){
+				clearTimeout(timeout);
 				$('.nav_menu').hide();
 				$('.nav_t').find('i').hide();
 			});
@@ -21,14 +27,14 @@ define(['jquery'],function($){
 			var index = 0;
 
 			clearInterval(timer);
-			var timer = setInterval(next,2000);
+			var timer = setInterval(next,3000);
 
 			$ban.on('mouseenter',function(){
 				$ul.siblings().show();
 				clearInterval(timer);
 			}).on('mouseleave',function(){
 				$ul.siblings().hide();
-				timer = setInterval(next,2000);
+				timer = setInterval(next,3000);
 			});
 
 			$('.ban_prev').click(function(){
@@ -51,11 +57,7 @@ define(['jquery'],function($){
 				show();
 			}
 			function show(){
-				// var $liWidth = $li.outerWidth();//.css({width:$liWidth*2})
-				
-				// console.log(index,$liWidth*index);
 				$ul.stop().animate({left:$li.outerWidth()*-index});
-				
 			}
 		},
 
@@ -75,7 +77,7 @@ define(['jquery'],function($){
 
 			$('.rec_prev').click(function(){
 				if(idx <= 0){
-					idx = $li.length-5;
+					idx = $('.sold_ul li').length-5;
 					$ul.css({left:speed*-idx});
 				}
 				idx--;
@@ -97,7 +99,7 @@ define(['jquery'],function($){
 
 			function rolling(){
 				$('.sold_ul').css({width:speed*$('.sold_ul li').length})
-				.stop().animate({left:speed*-idx})
+				.stop().animate({left:speed*-idx});
 			}
 
 		},
@@ -105,9 +107,9 @@ define(['jquery'],function($){
 		// 鼠标划过显示
 		sideApp:function(sel,ect){
 			sel.on('mouseenter',function(){
-				ect.fadeIn('fast');
+				ect.stop().fadeIn('fast');
 			}).on('mouseleave',function(){
-				ect.fadeOut('fast');
+				ect.stop().fadeOut('fast');
 			});
 		},
 

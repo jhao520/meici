@@ -1,6 +1,9 @@
 require(['config'],function(){
 
-	require(['jquery','animation'],function($,animation){
+	require(['jquery','animation','common','cookie','loginstatus'],function($,animation,com,cookie,loginstatus){
+
+		// 检测登录状态
+		loginstatus.loginstatus();
 		// 导航 鼠标划过显示
 		animation.nav();
 		// 顶部app二维码
@@ -10,12 +13,17 @@ require(['config'],function(){
 		// 顶部购物车
 		animation.sideApp($('.shoping_car'),$('.header_car')); 
 
-
+		// 检测cookie
+		var goodslist = getCookie('goodslist');
+		goodslist = goodslist ? JSON.parse(goodslist) : [];
+		// 顶部购物车列表
+		cookie.renderTop(goodslist);
 
 		let pageNum = 1;
 		let qty = 20;
 		let pageQty = 1;
 
+		// 请求数据
 		$.ajax({
 			url:'../api/list.php',
 			dataType:'json',
@@ -28,7 +36,8 @@ require(['config'],function(){
 			}
 		});
 
-		$('.pagination').on('click','span',function(){
+		// 设置分页
+		$('.pagination').on('click','.page_num',function(){
 
 			pageNum = Number($(this).text());
 
@@ -44,9 +53,67 @@ require(['config'],function(){
 				}
 			});
 
+		}).on('click','.page_prev',function(){
+			pageNum--;
+			if(pageNum <= 1){
+				pageNum = 1;
+			}
+			$.ajax({
+				url:'../api/list.php',
+				dataType:'json',
+				data:{
+					page:pageNum,
+					qty:qty
+				},
+				success:function(res){
+					showList(res);
+				}
+			});
+		}).on('click','.page_next',function(){
+			pageNum++;
+			if(pageNum >= pageQty){
+				pageNum = pageQty
+			}
+			$.ajax({
+				url:'../api/list.php',
+				dataType:'json',
+				data:{
+					page:pageNum,
+					qty:qty
+				},
+				success:function(res){
+					showList(res);
+				}
+			});
 		});
 
-
+		// 价格排序
+		$('.price_px i').removeClass();
+		var on_off = false;
+		$('.li_screen').on('click','.price_px',function(){
+			if(on_off){
+				var desc = '降序';
+				$(this).find('i').addClass('desc').removeClass('asc');
+				on_off = false;
+			}else{
+				var desc = '升序';
+				$(this).find('i').addClass('asc').removeClass('desc');
+				on_off = true;
+			}
+			$.ajax({
+				url:'../api/list.php',
+				dataType:'json',
+				data:{
+					page:pageNum,
+					qty:qty,
+					desc:desc,
+				},
+				success:function(res){
+					showList(res);
+				}
+			});
+			
+		});
 		function showList(res){
 			let html = res.data.map(item=>{
 				return `
@@ -55,24 +122,29 @@ require(['config'],function(){
 						<a class="pro_tit" href="javascript:;">
 							<b>${item.brand}</b><br>${item.name}
 						</a>
-						<p><span>${item.price}</span></p>
+						<p><span>${Number(item.price)}</span></p>
 					</li>
 				`
 			}).join('');
 
 			$('.li_pro_con ul').html(html);
 
-
-
 			pageQty = Math.ceil(res.total/res.qty);
 
-			var page_str = '<span class="prev">上一页</span>';
+			var page_str = '<span class="page_prev">上一页</span>';
 			for(var i=1;i<=pageQty;i++){
-				page_str += `<span ${res.pageNum==i?'class="active"':''}>${i}</span>`
+				page_str += `<span ${res.pageNum==i?'class="active page_num"':'class="page_num"'}>${i}</span>`
 			}
-			page_str += '<span class="next">下一页</span>';
+			page_str += '<span class="page_next">下一页</span>';
 
 			$('.pagination').html(page_str);
+
+
+			if(pageNum == 1){
+				$('.page_prev').hide().siblings().show();
+			}else if(pageNum == pageQty){
+				$('.page_next').hide().siblings().show();
+			}
 
 		}
 
@@ -126,6 +198,9 @@ require(['config'],function(){
 			}else{
 				$(this).parent().find('.li_opt_all i').removeClass('check');
 			}
+		}).on('click','.clear_all',function(){
+			$(this).prev().html();
+			$(this).closest('.list_scr_all ').hide();
 		});
 
 
@@ -151,9 +226,27 @@ require(['config'],function(){
 			window.location.href = '../html/details.html?id='+ id;
 		});
 
-		$('.add_buy').on('click','button',function(){
-			var id = $(this).data('guid');
-			window.location.href = '../html/details.html?id='+ id;
+		// 删除列表商品-->顶部
+		$('.hcc_info').on('click','.hcc_Lis_del',function(){
+			delPro($(this))
 		});
+
+		// 删除商品的 cookie + 页面内容
+		function delPro(current){
+			console.log(current[0]);
+			cookie.delCookie(current,goodslist);
+			cookie.renderTop(goodslist);
+			cookie.renderDoc(goodslist);
+			
+			if($('.hcc_info_c').has('.hcc_info_c_lis')[0] == undefined){
+				$('.hcc_info').hide().siblings().show();
+			}
+
+			if($('.cart_con_list table').has('tr')[0] == undefined){
+				$('.cart_content').hide();
+				$('.cart_none').show();
+			}
+		}
+
 	});
 });

@@ -1,6 +1,9 @@
 require(['config'],function(){
 
-	require(['jquery','animation','gdszoom','common','cookie'],function($,animation,gdsz,com,cookie){
+	require(['jquery','animation','gdszoom','common','cookie','loginstatus'],function($,animation,gdsz,com,cookie,loginstatus){
+
+		// 检测登录状态
+		loginstatus.loginstatus();
 
 		// 导航 鼠标划过显示
 		animation.nav();
@@ -11,6 +14,12 @@ require(['config'],function(){
 		// 顶部购物车
 		animation.sideApp($('.shoping_car'),$('.header_car')); 
 		animation.toTop();
+
+		// 检测cookie
+		var goodslist = getCookie('goodslist');
+		goodslist = goodslist ? JSON.parse(goodslist) : [];
+		// 顶部购物车
+		cookie.renderTop(goodslist);
 
 		// 截取列表页传来的数据
 		var data = location.search.substring(1);
@@ -25,7 +34,8 @@ require(['config'],function(){
 			url:'../api/list.php',
 			dataType:'json',
 			data:{
-				id:id
+				id:id,
+				qty:100
 			},
 			success:function(res){
 				// console.log(res);
@@ -44,7 +54,6 @@ require(['config'],function(){
 											<li><a href="javascript:;"><img src="../img/${item.imgurl}-2.jpg" alt=""></a></li>
 											<li><a href="javascript:;"><img src="../img/${item.imgurl}-3.jpg" alt=""></a></li>
 											<li><a href="javascript:;"><img src="../img/${item.imgurl}-4.jpg" alt=""></a></li>
-											<li><a href="javascript:;"><img src="../img/${item.imgurl}-5.jpg" alt=""></a></li>
 										</ul>							
 									</div>
 								</div>
@@ -60,7 +69,7 @@ require(['config'],function(){
 					if(item.id == id){
 						return `
 							<!-- 介绍 -->
-							<div class="pro_info fc1" data-guid="${item.id}">
+							<div class="pro_info pro_list_specific fc1" data-guid="${item.id}">
 								<!-- 商品名字 -->
 								<h1><a href="/">${item.brand}</a></h1>
 								<!-- 品牌 标题	 -->
@@ -71,7 +80,7 @@ require(['config'],function(){
 								<!-- 价格 -->
 								<div class="pro_info_pirce">
 									<div class="clear span_w55">
-										<span>美西价</span><i></i><b>${item.price}.00</b>
+										<span>美西价</span><i></i><b>${Number(item.price)}.00</b>
 									</div>
 								</div>
 								<!-- 颜色 -->
@@ -79,7 +88,7 @@ require(['config'],function(){
 									<div class="clear span_w55">
 										<span>颜色</span>
 										<ul class="clear">
-											<li>${item.color}</li>
+											<li title="${item.color}">${item.color}</li>
 										</ul>
 									</div>
 								</div>
@@ -135,6 +144,31 @@ require(['config'],function(){
 				}).join('');
 				$('.goodspro').html(pic + info);
 
+				// 商品颜色
+				switch($('.pro_info_color li').text()){
+					case "黑色":
+						$('.pro_info_color li').addClass('black');
+						break;
+					case "白色":
+						$('.pro_info_color li').addClass('white');
+						break;
+					case "红色":
+						$('.pro_info_color li').addClass('red');
+						break;
+					case "蓝色":
+						$('.pro_info_color li').addClass('blue');
+						break;
+					case "绿色":
+						$('.pro_info_color li').addClass('green');
+						break;
+					case "灰色":
+						$('.pro_info_color li').addClass('gray');
+						break;
+					case "多色":
+						$('.pro_info_color li').addClass('multicolor');
+						break;
+				}
+				
 				// 鼠标移入小图，切换大图路径
 				$('.pic_small').on('mouseenter','li',function(){
 					$(this).siblings().find('img').removeClass('border');
@@ -150,37 +184,10 @@ require(['config'],function(){
 				var num=0;
 				var total = 0;
 				$('.add_car').click(function(){
-					let hcarli = res.data.map(item=>{
-						if(item.id == id){
-							total += item.price*1;
-							num++;
-							return `
-								<!-- 商品列表 -->
-								<div class="hcc_info_c_lis relative clear" data-clid="${item.id}">
-									<div class="hcc_lis_img fl">
-										<a href="javascript:;"><img src="../img/${item.imgurl}-1.jpg" alt=""></a>
-									</div>
-									<div class="hcc_lis_con fl">
-										<span class="hlc_name full_line">
-											<a href="javascript:;">${item.brand}</a>
-										</span>
-										<span class="c_gray full_line">${item.name}</span>
-										<span class="global">全球购</span>
-										<span class="hcc_price">${item.price}</span>
-										<span class="hcc_number c_gray">${num}</span>
-									</div>
-									<div class="hcc_Lis_del absolute">╳</div>
-								</div>
-							`;
-						}
-					}).join('');
-					$('.hcc_info_c').html(hcarli);
-					$('.hcc_info').show().siblings().hide();
-					$('.hcc_total_price').text(total);
-					
-					if($('.hcc_info_c').has('.hcc_info_c_lis')[0] == undefined){
-						$('.hcc_info').hide().siblings().show();
-					}
+					// 添加cookie
+					cookie.addCookie($(this),res,goodslist);
+					// 顶部购物车
+					cookie.renderTop(goodslist);
 
 					// 删除列表商品
 					$('.hcc_Lis_del').click(function(){
@@ -233,7 +240,7 @@ require(['config'],function(){
 							<div class="recom_name">
 								<span class="rnt">${item.brand}</span><br>
 								<span class="rnm">${item.name}</span><br>
-								<span class="rnf">${item.price}.00</span>
+								<span class="rnf">￥${Number(item.price)}.00</span>
 							</div>
 						</a></li>
 					`;
@@ -262,9 +269,9 @@ require(['config'],function(){
 				});
 
 
-
+				// 即刻购买
 				$('.add_buy').on('click','button',function(){
-					console.log(666);
+					// console.log(666);
 					var id = $(this).closest('.pro_info').data('guid');
 					window.location.href = '../html/cart.html?id='+ id;
 				});
@@ -286,6 +293,31 @@ require(['config'],function(){
 			var id = $(this).data('guid');
 			window.location.href = '../html/details.html?id='+ id;
 		});
+
+
+		// 删除列表商品-->顶部
+		$('.hcc_info').on('click','.hcc_Lis_del',function(){
+			delPro($(this))
+		});
+
+		// 删除商品的 cookie + 页面内容
+		function delPro(current){
+			// console.log(current[0]);
+			cookie.delCookie(current,goodslist);
+			cookie.renderTop(goodslist);
+			cookie.renderDoc(goodslist);
+			
+			if($('.hcc_info_c').has('.hcc_info_c_lis')[0] == undefined){
+				$('.hcc_info').hide().siblings().show();
+			}
+
+			if($('.cart_con_list table').has('tr')[0] == undefined){
+				$('.cart_content').hide();
+				$('.cart_none').show();
+			}
+		}
+
+
 
 	});
 });

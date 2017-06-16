@@ -4,10 +4,18 @@
 	// 分页
 	$page = isset($_GET['page']) ? $_GET['page'] : 1;
 	$qty = isset($_GET['qty']) ? $_GET['qty'] : 20;
-	// $id = isset($_GET['id']) ? $_GET['id'] : 1;
+	$desc = isset($_GET['desc']) ? $_GET['desc'] : '';
+
+	// SQL语句
 
 	// 查询数据库
-	$sql = "select * from goods limit ".($page-1)*$qty.",".$qty;
+	if($desc == "降序"){
+		$sql = "select * from (select * from goods order by price desc) temp_table limit ".($page-1)*$qty.",".$qty;
+	}else if($desc == "升序"){
+		$sql = "select * from (select * from goods order by price asc) temp_table limit ".($page-1)*$qty.",".$qty;
+	}else{
+		$sql = "select * from goods limit ".($page-1)*$qty.",".$qty;
+	}	
 
 
 	// 获取查询结果
@@ -21,6 +29,7 @@
 	$res = array(
 		'pageNum'=>$page,
 		'qty'=>$qty,
+		'价格排序'=>$desc,
 		'total'=>$conn->query('select count(*) from goods')->fetch_row()[0],
 		'data'=>$rows,
 	);

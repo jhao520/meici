@@ -1,6 +1,9 @@
 require(['config'],function(){
 
-	require(['jquery','animation','gdszoom','common','cookie'],function($,animation,gdsz,com,cookie){
+	require(['jquery','animation','gdszoom','common','cookie','loginstatus'],function($,animation,gdsz,com,cookie,loginstatus){
+
+		// 检测登录状态
+		loginstatus.loginstatus();
 
 		// 导航 鼠标划过显示
 		animation.nav();
@@ -13,13 +16,26 @@ require(['config'],function(){
 		// 返回顶部
 		animation.toTop();
 
+		// 设置时间戳					 
+		var now = new Date();
+		now.setDate(now.getFullYear() + 1);
+		// 检测cookie
+		var goodslist = getCookie('goodslist');
+		goodslist = goodslist ? JSON.parse(goodslist) : [];
+		// 顶部购物车
+		cookie.renderTop(goodslist);
+		// 页面购物车
+		cookie.renderDoc(goodslist);
 
 		// 请求数据
 		$.ajax({
 			url:'../api/list.php',
 			dataType:'json',
+			data:{
+				qty:100
+			},
 			success:function(res){
-				console.log(res);
+				// console.log(res);
 
 				// 猜你喜欢
 				let carProRec = res.data.map(item=>{
@@ -32,7 +48,7 @@ require(['config'],function(){
 									<span class="rnm">${item.name}</span>
 								</div>
 							</a>
-							<div class="car_rec_pri">${item.price}.00</div>
+							<div class="car_rec_pri">￥${Number(item.price)}.00</div>
 							<div><a class="add_car" href="javascript:;">添加到购物袋</a></div>
 						</li>
 					`;
@@ -62,142 +78,17 @@ require(['config'],function(){
 
 				// 加入购物车
 				$('.car_rec_cont').on('click','.add_car',function(){
-					addCookie($(this));
+					cookie.addCookie($(this),res,goodslist);
+					cookie.renderTop(goodslist.reverse());
+					cookie.renderDoc(goodslist);
 				});
 
-				// 设置cookie
-				var goodslist = getCookie('goodslist');
-				goodslist = goodslist ? JSON.parse(goodslist) : [];
-				// 数量加
-				function addCookie(current){
-
-					var $curLi = current.closest('.pro_list_specific');
-					var guid = $curLi.data('guid');
-					for(var i=0;i<goodslist.length;i++){
-						if(goodslist[i].guid === guid){
-							goodslist[i].qty++;
-							break;
-						}
-					}
-
-					if(i===goodslist.length){
-						var goods = {
-							guid:guid,
-							imgurl:$curLi.find('img').attr('src'),
-							brand:$curLi.find('.rnt').text(),
-							name:$curLi.find('.rnm').text(),
-							price:$curLi.find('.car_rec_pri').text(),
-							qty:1
-						}
-
-						goodslist.push(goods);
-					}
-					setCookie('goodslist',JSON.stringify(goodslist));
-					renderTop();
-					renderDoc();
-
-				}
-
-
-				renderTop();
-				function renderTop(){
-					var total = 0;
-					// 写入顶部购物车
-					let hcarli = goodslist.map(item=>{
-						total += item.price*item.qty;
-						return `
-							<!-- 商品列表 -->
-							<div  class="hcc_info_c_lis relative clear pro_list_specific" data-guid="${item.guid}">
-								<div class="hcc_lis_img fl">
-									<a href="javascript:;"><img src="${item.imgurl}" alt=""></a>
-								</div>
-								<div class="hcc_lis_con fl">
-									<span class="hlc_name full_line">
-										<a href="javascript:;">${item.brand}</a>
-									</span>
-									<span class="c_gray full_line">${item.name}</span>
-									<span class="global">全球购</span>
-									<span class="hcc_price">${item.price}</span>
-									<span class="hcc_number c_gray">${item.qty}</span>
-								</div>
-								<div class="hcc_Lis_del absolute">╳</div>
-							</div>
-						`;
-					}).join('');
-					$('.hcc_info_c').html(hcarli);
-					// 写入总价
-					$('.hcc_total_price').text(total);
-
-					$('.hcc_info').show().siblings().hide();
-					if($('.hcc_info_c').has('.hcc_info_c_lis')[0] == undefined){
-						$('.hcc_info').hide().siblings().show();
-					}
-				}
-
-
-				renderDoc();
-				function renderDoc(){
-					var total = 0;
-					var pro_num = 0;
-					// 写入页面购物车
-					let carli = goodslist.map(item=>{
-						total += item.price*item.qty;
-						pro_num += item.qty;
-						return `
-							<tr data-guid="${item.guid}" class="clear pro_list_specific">
-								<td class="ccl_con center relative clear">
-									<input type="checkbox" checked>
-									<div class="ccl_img fl"><a href="javascript:;"><img src="${item.imgurl}" alt=""></a></div>
-									<div class="ccl_info fl">
-										<div class="ccl_name">
-											<a href="javascript:;">
-												<span>${item.brand}</span><br><span>${item.name}</span>
-											</a>
-										</div>
-										<div class="ccl_prop">
-											<span class="ccl_color">颜色：${item.color}</span><br>
-											<span class="global">全球购</span>
-										</div>
-									</div>
-								</td>
-								<td class="ccl_price center cct3">${item.price}</td>
-								<td class="center cct4">
-									<div class="car_num">
-										<div class="car_num_m mauto clear">
-											<a class="num_red fl" href="javascript:;">-</a>
-											<input type="text" class="car_int fl" value="${item.qty}">
-											<a class="num_add fr" href="javascript:;">+</a>
-										</div>
-									</div>
-								</td>
-								<td class="center lh144 cct5">￥<span class="subtotal">${item.price*item.qty}</span></td>
-								<td class="center">
-									<div class="center ccl_btn mauto">
-										<a href="javascript:;">加入收藏</a><br>
-										<a class="ccl_del" href="javascript:;">删除</a>
-									</div>
-								</td>
-							</tr>
-						`;
-					}).join('');
-					$('.cart_con_list table').html(carli);
-					// 写入总价
-					$('.pro_total').text(total);
-					$('.pro_num').text(pro_num);
-
-					$('.cart_content').show();
-					$('.cart_none').hide();
-
-					if($('.cart_con_list table').has('tr')[0] == undefined){
-						$('.cart_content').hide();
-						$('.cart_none').show();
-					}
-
-				}
 
 				// 数量加
 				$('.cart_con_list').on('click','.num_add',function(){
-					addCookie($(this));
+					cookie.addCookie($(this),res,goodslist);
+					cookie.renderTop(goodslist);
+					cookie.renderDoc(goodslist);
 				})
 				// 数量减
 				.on('click','.num_red',function(){
@@ -209,25 +100,82 @@ require(['config'],function(){
 
 							goodslist[i].qty--;
 
-							if(goodslist[i].qty <= 0){
-								goodslist[i].qty = 0;
+							if(goodslist[i].qty <= 1){
+								goodslist[i].qty = 1;
 							}
-							setCookie('goodslist',JSON.stringify(goodslist));
+
+							setCookie('goodslist',JSON.stringify(goodslist),now.toUTCString());
 							break;
 						}
 					}			
-					renderTop();
-					renderDoc();
-					
+					cookie.renderTop(goodslist);
+					cookie.renderDoc(goodslist);
+
 				})
 				// 弹窗确认
 				.on('click','.ccl_del',function(){
 					$('.pop_up').show();
 				});
 
+
+				// 勾选
+				$('.cart_content').on('click','.ccl_check',function(){
+
+					var $pro_Num = $('.cart_con_bar').find('.pro_num').text()*1;
+					var $pro_total = $('.pro_total').text()*1;
+					var thePrice = $(this).closest('.pro_list_specific').find('.subtotal').text()*1;
+					var theNum = $(this).closest('.pro_list_specific').find('.car_int').val()*1;
+
+					// console.log($pro_Num,theNum,$pro_total,thePrice)
+					if(!this.checked){
+						// 写入总价
+						$('.pro_total').text($pro_total-thePrice);
+						// 写入总数
+						$('.cart_con_bar').find('.pro_num').text($pro_Num-theNum);
+
+						
+					}else{
+						// 写入总价
+						$('.pro_total').text($pro_total+thePrice);
+						// 写入总数
+						$('.cart_con_bar').find('.pro_num').text($pro_Num+theNum);
+					}
+					gouxuan(this);
+
+				}).on('click','.allcpro input',function(){
+					console.log($pro_Num,$pro_total)
+					if(!this.checked){
+						$('.allcpro input').prop({checked:false});
+						$('.ccl_check').prop({checked:false});
+						// 写入总价
+						$('.pro_total').text(0);
+						// 写入总数
+						$('.cart_con_bar').find('.pro_num').text(0);
+						return;
+					}else{
+						$('.allcpro input').prop({checked:true});
+						$('.ccl_check').prop({checked:true});
+						// 写入总价
+						$('.pro_total').text($pro_total);
+						// 写入总数
+						$('.cart_con_bar').find('.pro_num').text($pro_Num);
+					}
+				});
+				function gouxuan(the){
+					$('.ccl_check').each(function(i){
+						if(!the.checked){
+							$('.allcpro input').prop({checked:false});
+							return;
+						}else{
+							$('.allcpro input').prop({checked:true});
+						}
+					})
+				}
+
+
 				// 删除列表商品-->页面
 				$('.pop_up').on('click','.p_yes',function(){
-					delCookie($('.ccl_del'));
+					delPro($('.ccl_del'));
 					$('.pop_up').hide();
 				}).on('click','.p_no',function(){
 					$('.pop_up').hide();
@@ -237,26 +185,15 @@ require(['config'],function(){
 
 				// 删除列表商品-->顶部
 				$('.hcc_info').on('click','.hcc_Lis_del',function(){
-					delCookie($(this));
+					delPro($(this))
 				});
 
-				// 删除cookie
-				function delCookie(current){
-
-					var guid = current.closest('.pro_list_specific').data('guid');
-					console.log(guid);
-
-					for(var i=0;i<goodslist.length;i++){
-						if(goodslist[i].guid === guid){
-							goodslist.splice(i,1);
-							console.log(i,1)
-							setCookie('goodslist',JSON.stringify(goodslist));
-							break;
-						}
-					}
-
-					renderTop();
-					renderDoc();
+				// 删除商品的 cookie + 页面内容
+				function delPro(current){
+					console.log(current[0]);
+					cookie.delCookie(current,goodslist);
+					cookie.renderTop(goodslist);
+					cookie.renderDoc(goodslist);
 					
 					if($('.hcc_info_c').has('.hcc_info_c_lis')[0] == undefined){
 						$('.hcc_info').hide().siblings().show();
@@ -266,12 +203,18 @@ require(['config'],function(){
 						$('.cart_content').hide();
 						$('.cart_none').show();
 					}
-
 				}
 
 			}
 
 		});
+
+		// 跳转到详情页，并传送id
+		$('.car_rec_cont').on('click','li .db',function(){
+			var id = $(this).closest('.pro_list_specific').data('guid');
+			window.location.href = '../html/details.html?id='+ id;
+		});
+
 
 	});
 

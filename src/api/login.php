@@ -17,24 +17,19 @@
 
 	// 获取数组长度
 	// $length = count($rows);
+	
+	
+	for($i=0;$i<count($rows);$i++){
+		$user=array_search($username,$rows[$i]);
+		$pswd=array_search($password,$rows[$i]);
 
-	$uname = array_column($rows,"username");
-	$pswd = array_column($rows,"password");
-
-	for($i=0;$i<count($uname);$i++){
-		for($j=0;$j<count($pswd);$j++){
-			if($username == $uname[$i] && $password == $pswd[$j]){
-				// echo json_encode('Error: 用户名重复',JSON_UNESCAPED_UNICODE);
-				// echo json_encode($uname,JSON_UNESCAPED_UNICODE);
-				echo 'true';
-				//关闭连接
-				$conn->close();
-				return;
-				exit;
-			}
+		if($user!=false && $pswd!=false){
+			echo '1';
+		}else{
+			echo '0';
 		}
-	}
 
+	}
 
 	//关闭连接
 	$conn->close();
